@@ -1,0 +1,244 @@
+export default function AJPortfolio() {
+  const skills = [
+    "C#",
+    ".NET MAUI",
+    "ASP.NET MVC",
+    "Web API",
+    "React Native",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "SQL",
+    "Firebase",
+    "Kendo UI",
+    "Chart.js",
+    "Git",
+    "IIS",
+  ];
+
+  const projects = [
+    {
+      title: "First Medicine",
+      type: "Mobile App + Backend",
+      description:
+        "A healthcare-focused platform built with a .NET MAUI mobile app and .NET backend. Worked across UI, API integration, notifications, localization, payment flows, and production troubleshooting on Android and iOS.",
+      tags: [".NET MAUI", "ASP.NET", "Firebase", "iOS", "Android"],
+    },
+    {
+      title: "School Systems Platform",
+      type: "Enterprise Web System",
+      description:
+        "Contributed to large school management and reporting systems with ASP.NET MVC, Kendo UI, advanced reporting layouts, data-heavy screens, printing flows, and real-world government and academic document requirements.",
+      tags: ["ASP.NET MVC", "Kendo UI", "Reports", "Printing", "SQL"],
+    },
+    {
+      title: "React Native Parent & Student Features",
+      type: "Mobile UI/UX",
+      description:
+        "Designed and refined mobile screens for agenda, events, notes, fees, and student dashboards with a strong focus on polished UX, modern visuals, and practical API-driven data handling.",
+      tags: ["React Native", "UX", "APIs", "Mobile Design"],
+    },
+    {
+      title: "Tawbah",
+      type: "Product Concept",
+      description:
+        "A spiritual habit and reflection app idea built around prayer tracking, consistency, personal growth, and meaningful daily guidance. Structured from a product and architecture perspective.",
+      tags: ["Product Thinking", "App Planning", "UX Strategy"],
+    },
+  ];
+
+  const strengths = [
+    {
+      title: "Mobile Development",
+      text: "Building practical cross-platform apps with strong attention to usability, performance, and real production constraints.",
+    },
+    {
+      title: "Backend Integration",
+      text: "Connecting apps to APIs, handling data flow, debugging edge cases, and keeping the whole thing from catching fire.",
+    },
+    {
+      title: "UI Refinement",
+      text: "Turning rough screens into clean, modern interfaces that feel intentional instead of accidentally surviving design review.",
+    },
+    {
+      title: "Problem Solving",
+      text: "Comfortable working through messy bugs, legacy code, confusing requirements, and the classic 'it works on their machine' plot twist.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-white">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-24 left-[-10%] h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="absolute top-1/3 right-[-8%] h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
+      </div>
+
+      <main className="relative mx-auto max-w-7xl px-6 py-10 md:px-10 lg:px-12">
+        <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="space-y-6">
+            <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur">
+              Software Engineer • Mobile • Web • UI/UX
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-sm uppercase tracking-[0.35em] text-cyan-300">Portfolio Preview</p>
+              <h1 className="max-w-4xl text-4xl font-black leading-tight text-white md:text-6xl">
+                Ahmad Jarouche
+                <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 bg-clip-text text-transparent">
+                  Building apps that look sharp and actually work
+                </span>
+              </h1>
+              <p className="max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+                I am a software engineer focused on mobile and web development, with hands-on experience in .NET MAUI, ASP.NET, React Native, backend integration, and UI refinement. I enjoy taking complicated real-world systems and turning them into products that feel clean, useful, and reliable.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-white/10 transition hover:-translate-y-0.5"
+              >
+                View Projects
+              </a>
+              <a
+                href="#skills"
+                className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Explore Skills
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-2xl shadow-cyan-950/40 backdrop-blur-xl">
+              <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-slate-400">Current Focus</p>
+                    <h2 className="mt-1 text-2xl font-bold">Mobile + Full Stack Delivery</h2>
+                  </div>
+                  <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-200">
+                    Available for projects
+                  </div>
+                </div>
+
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm text-slate-400">Core Stack</p>
+                    <p className="mt-2 text-lg font-semibold">.NET, MAUI, React Native</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm text-slate-400">Strength</p>
+                    <p className="mt-2 text-lg font-semibold">Shipping useful products</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm text-slate-400">Experience</p>
+                    <p className="mt-2 text-lg font-semibold">Enterprise + client systems</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm text-slate-400">Style</p>
+                    <p className="mt-2 text-lg font-semibold">Clean UI, real debugging</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {strengths.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:-translate-y-1 hover:bg-white/[0.07]"
+            >
+              <h3 className="text-lg font-bold text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
+            </div>
+          ))}
+        </section>
+
+        <section id="projects" className="mt-20">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">Selected Work</p>
+              <h2 className="mt-2 text-3xl font-black md:text-4xl">Projects and product work</h2>
+            </div>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="group rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/8 to-white/[0.03] p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-cyan-300/30"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                    {project.type}
+                  </span>
+                </div>
+                <p className="mt-4 text-sm leading-7 text-slate-300">{project.description}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-cyan-400/15 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-100"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="skills" className="mt-20 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
+            <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">About</p>
+            <h2 className="mt-3 text-3xl font-black">What I bring</h2>
+            <p className="mt-5 text-sm leading-8 text-slate-300">
+              My work sits at the intersection of engineering, debugging, and product sense. I am comfortable dealing with legacy systems, building new features, integrating services, improving interfaces, and figuring out why something broke five minutes before everyone decided it was urgent.
+            </p>
+            <p className="mt-4 text-sm leading-8 text-slate-300">
+              I care about clarity, maintainability, and making software feel better for the people using it. Whether the job is a mobile screen, a backend flow, a production fix, or a full feature rollout, I like solutions that are both practical and clean.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
+            <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">Toolbox</p>
+            <h2 className="mt-3 text-3xl font-black">Skills and technologies</h2>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-2 text-sm font-medium text-slate-200"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-20">
+          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-r from-cyan-500/10 via-slate-900 to-fuchsia-500/10 p-8 text-center shadow-2xl shadow-cyan-950/20">
+            <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">Let’s build</p>
+            <h2 className="mt-3 text-3xl font-black md:text-4xl">
+              Need a mobile or web product that feels modern and works properly?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-8 text-slate-300 md:text-base">
+              This demo portfolio is intentionally styled to feel premium and modern. You can now use it as a base, test it locally, or tweak the text and visuals for a real client portfolio.
+            </p>
+            <div className="mt-6 flex justify-center gap-3">
+              <span className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950">
+                Portfolio Preview Ready
+              </span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
