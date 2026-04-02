@@ -1,244 +1,853 @@
-export default function AJPortfolio() {
-  const skills = [
-    "C#",
-    ".NET MAUI",
-    "ASP.NET MVC",
-    "Web API",
-    "React Native",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "SQL",
-    "Firebase",
-    "Kendo UI",
-    "Chart.js",
-    "Git",
-    "IIS",
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Jarouche | Portfolio</title>
+  <meta name="description" content="Portfolio of Ahmad Jarouche, software engineer focused on .NET MAUI, ASP.NET, React Native, backend integration, and polished UI." />
+  <style>
+    :root {
+      --bg: #06111f;
+      --bg-soft: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.12);
+      --text: #eef6ff;
+      --muted: #a9bfd7;
+      --cyan: #70e1ff;
+      --blue: #5aa4ff;
+      --purple: #b388ff;
+      --green: #68f0b0;
+      --shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1200px;
+    }
 
-  const projects = [
-    {
-      title: "First Medicine",
-      type: "Mobile App + Backend",
-      description:
-        "A healthcare-focused platform built with a .NET MAUI mobile app and .NET backend. Worked across UI, API integration, notifications, localization, payment flows, and production troubleshooting on Android and iOS.",
-      tags: [".NET MAUI", "ASP.NET", "Firebase", "iOS", "Android"],
-    },
-    {
-      title: "School Systems Platform",
-      type: "Enterprise Web System",
-      description:
-        "Contributed to large school management and reporting systems with ASP.NET MVC, Kendo UI, advanced reporting layouts, data-heavy screens, printing flows, and real-world government and academic document requirements.",
-      tags: ["ASP.NET MVC", "Kendo UI", "Reports", "Printing", "SQL"],
-    },
-    {
-      title: "React Native Parent & Student Features",
-      type: "Mobile UI/UX",
-      description:
-        "Designed and refined mobile screens for agenda, events, notes, fees, and student dashboards with a strong focus on polished UX, modern visuals, and practical API-driven data handling.",
-      tags: ["React Native", "UX", "APIs", "Mobile Design"],
-    },
-    {
-      title: "Tawbah",
-      type: "Product Concept",
-      description:
-        "A spiritual habit and reflection app idea built around prayer tracking, consistency, personal growth, and meaningful daily guidance. Structured from a product and architecture perspective.",
-      tags: ["Product Thinking", "App Planning", "UX Strategy"],
-    },
-  ];
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(112,225,255,0.18), transparent 25%),
+        radial-gradient(circle at 85% 20%, rgba(179,136,255,0.16), transparent 22%),
+        radial-gradient(circle at 50% 80%, rgba(104,240,176,0.10), transparent 18%),
+        linear-gradient(135deg, #040b14 0%, #08111f 45%, #0b1630 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  const strengths = [
-    {
-      title: "Mobile Development",
-      text: "Building practical cross-platform apps with strong attention to usability, performance, and real production constraints.",
-    },
-    {
-      title: "Backend Integration",
-      text: "Connecting apps to APIs, handling data flow, debugging edge cases, and keeping the whole thing from catching fire.",
-    },
-    {
-      title: "UI Refinement",
-      text: "Turning rough screens into clean, modern interfaces that feel intentional instead of accidentally surviving design review.",
-    },
-    {
-      title: "Problem Solving",
-      text: "Comfortable working through messy bugs, legacy code, confusing requirements, and the classic 'it works on their machine' plot twist.",
-    },
-  ];
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-  return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 left-[-10%] h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
-        <div className="absolute top-1/3 right-[-8%] h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(6, 17, 31, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(112,225,255,0.25), rgba(90,164,255,0.22), rgba(179,136,255,0.25));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.045));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-main {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-main::before,
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(30px);
+      z-index: -1;
+    }
+
+    .hero-main::before {
+      width: 220px;
+      height: 220px;
+      background: rgba(112, 225, 255, 0.16);
+      top: -80px;
+      right: -60px;
+    }
+
+    .hero-main::after {
+      width: 180px;
+      height: 180px;
+      background: rgba(179, 136, 255, 0.16);
+      bottom: -50px;
+      left: -50px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #d9e9f8;
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .gradient-text {
+      display: block;
+      margin-top: 10px;
+      background: linear-gradient(90deg, var(--cyan), #9bd7ff, var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 18px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #e8f8ff, #b7e6ff);
+      color: #041220;
+      border-color: transparent;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .profile-card {
+      flex: 1;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(7, 17, 34, 0.96), rgba(13, 26, 49, 0.86));
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 100%;
+    }
+
+    .mini-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(112,225,255,0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(112,225,255,0.16);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .profile-name {
+      margin: 16px 0 8px;
+      font-size: 1.65rem;
+      font-weight: 800;
+    }
+
+    .profile-role {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0 0 24px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    section {
+      padding: 32px 0;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .section-label {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 800px;
+      margin-top: 12px;
+    }
+
+    .strength-grid,
+    .project-grid,
+    .skill-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .strength-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(112,225,255,0.28);
+      background: rgba(255,255,255,0.10);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .project-type {
+      display: inline-flex;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dbe9fb;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(112,225,255,0.10);
+      border: 1px solid rgba(112,225,255,0.14);
+      color: #d9f7ff;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .skills-card p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .chip {
+      padding: 11px 15px;
+      border-radius: 16px;
+      background: rgba(6, 17, 31, 0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 700;
+      color: #e6f1ff;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-top: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      box-shadow: 0 0 0 6px rgba(112,225,255,0.09);
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .cta {
+      padding: 34px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: auto auto -80px -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(112,225,255,0.12);
+      filter: blur(24px);
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      inset: -70px -70px auto auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(179,136,255,0.11);
+      filter: blur(24px);
+    }
+
+    .cta h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta p {
+      max-width: 800px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      line-height: 1.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer {
+      padding: 24px 0 50px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .skill-grid,
+      .project-grid,
+      .strength-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      section {
+        padding-top: 24px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card,
+      .cta,
+      .profile-card {
+        padding: 20px;
+      }
+
+      .strength-grid,
+      .project-grid,
+      .skill-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-badge">AJ</span>
+        <span>Ahmad Jarouche</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
       </div>
+    </div>
+  </nav>
 
-      <main className="relative mx-auto max-w-7xl px-6 py-10 md:px-10 lg:px-12">
-        <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-          <div className="space-y-6">
-            <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur">
-              Software Engineer • Mobile • Web • UI/UX
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.35em] text-cyan-300">Portfolio Preview</p>
-              <h1 className="max-w-4xl text-4xl font-black leading-tight text-white md:text-6xl">
-                Ahmad Jarouche
-                <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 bg-clip-text text-transparent">
-                  Building apps that look sharp and actually work
-                </span>
-              </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
-                I am a software engineer focused on mobile and web development, with hands-on experience in .NET MAUI, ASP.NET, React Native, backend integration, and UI refinement. I enjoy taking complicated real-world systems and turning them into products that feel clean, useful, and reliable.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#projects"
-                className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-white/10 transition hover:-translate-y-0.5"
-              >
-                View Projects
-              </a>
-              <a
-                href="#skills"
-                className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                Explore Skills
-              </a>
-            </div>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="glass hero-main reveal">
+          <div class="eyebrow">Software Engineer • Mobile • Web • UI Refinement</div>
+          <h1>
+            Ahmad Jarouche
+            <span class="gradient-text">Building apps that look sharp and actually work</span>
+          </h1>
+          <p class="lead">
+            I work across mobile and web development with hands-on experience in .NET MAUI, ASP.NET MVC, backend integration, React Native, and UI refinement. I like turning complicated real-world systems into products that feel clean, useful, and reliable instead of random and held together by hope.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">See projects</a>
+            <a class="btn btn-secondary" href="#skills">View skills</a>
           </div>
+        </div>
 
-          <div>
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-2xl shadow-cyan-950/40 backdrop-blur-xl">
-              <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-slate-400">Current Focus</p>
-                    <h2 className="mt-1 text-2xl font-bold">Mobile + Full Stack Delivery</h2>
-                  </div>
-                  <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-200">
-                    Available for projects
-                  </div>
-                </div>
-
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm text-slate-400">Core Stack</p>
-                    <p className="mt-2 text-lg font-semibold">.NET, MAUI, React Native</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm text-slate-400">Strength</p>
-                    <p className="mt-2 text-lg font-semibold">Shipping useful products</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm text-slate-400">Experience</p>
-                    <p className="mt-2 text-lg font-semibold">Enterprise + client systems</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm text-slate-400">Style</p>
-                    <p className="mt-2 text-lg font-semibold">Clean UI, real debugging</p>
-                  </div>
-                </div>
+        <div class="glass hero-side reveal">
+          <div class="profile-card">
+            <span class="mini-pill">Available for portfolio demo</span>
+            <div class="profile-name">Full Stack + Mobile Focus</div>
+            <p class="profile-role">
+              .NET MAUI, ASP.NET, React Native, APIs, debugging, polished interfaces, and real production problem solving.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <strong>Core stack</strong>
+                <span>.NET, MAUI, React Native, SQL</span>
+              </div>
+              <div class="stat">
+                <strong>Strength</strong>
+                <span>Shipping practical features</span>
+              </div>
+              <div class="stat">
+                <strong>Style</strong>
+                <span>Modern UI with actual function</span>
+              </div>
+              <div class="stat">
+                <strong>Work mode</strong>
+                <span>Legacy systems to new builds</span>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {strengths.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:-translate-y-1 hover:bg-white/[0.07]"
-            >
-              <h3 className="text-lg font-bold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">About</div>
+          <h2 class="section-title">What I bring to a project</h2>
+          <p class="section-copy">
+            My work sits between engineering, product thinking, and cleanup mode when systems start acting cursed. I am comfortable building features, integrating APIs, improving frontends, solving backend issues, and dealing with real constraints like legacy code, production bugs, mobile platform weirdness, and tight requirements.
+          </p>
+        </div>
+
+        <div class="strength-grid">
+          <div class="card reveal">
+            <h3>Mobile Development</h3>
+            <p>Cross-platform apps with strong attention to usability, polish, and practical production constraints across Android and iOS.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Backend Integration</h3>
+            <p>Connecting interfaces to APIs, shaping data flow, debugging broken requests, and keeping business logic from collapsing on itself.</p>
+          </div>
+          <div class="card reveal">
+            <h3>UI Refinement</h3>
+            <p>Turning rough screens into modern, clean experiences that feel intentional instead of looking like they survived five redesigns.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Problem Solving</h3>
+            <p>Comfortable with messy bugs, edge cases, last-minute issues, and the timeless classic of “but it works on the other machine.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Selected Work</div>
+          <h2 class="section-title">Projects and product work</h2>
+          <p class="section-copy">
+            A few examples based on the kind of systems and products I have worked on, from healthcare and school platforms to mobile UI-heavy features and product concepts.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="card reveal">
+            <div class="project-type">Mobile App + Backend</div>
+            <h3>First Medicine</h3>
+            <p>
+              A healthcare-oriented platform built with a .NET MAUI mobile app and .NET backend. Work included API integration, notifications, localization, payment-related flows, platform-specific troubleshooting, and cross-device polish on Android and iOS.
+            </p>
+            <div class="tag-row">
+              <span class="tag">.NET MAUI</span>
+              <span class="tag">ASP.NET</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">iOS</span>
+              <span class="tag">Android</span>
             </div>
-          ))}
-        </section>
+          </article>
 
-        <section id="projects" className="mt-20">
-          <div className="mb-8 flex items-end justify-between gap-4">
+          <article class="card reveal">
+            <div class="project-type">Enterprise Web System</div>
+            <h3>School Systems Platform</h3>
+            <p>
+              Large school management and reporting systems built with ASP.NET MVC, Kendo UI, advanced reporting layouts, data-heavy screens, printing flows, and strict academic and administrative document requirements.
+            </p>
+            <div class="tag-row">
+              <span class="tag">ASP.NET MVC</span>
+              <span class="tag">Kendo UI</span>
+              <span class="tag">Reports</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Printing</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="project-type">Mobile UI/UX</div>
+            <h3>React Native Parent and Student Features</h3>
+            <p>
+              Designed and refined mobile screens for agendas, events, notes, fees, and dashboards with modern layouts, better UX, cleaner states, and practical API-driven rendering for real application flows.
+            </p>
+            <div class="tag-row">
+              <span class="tag">React Native</span>
+              <span class="tag">UX</span>
+              <span class="tag">APIs</span>
+              <span class="tag">Mobile Design</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="project-type">Product Concept</div>
+            <h3>Tawbah</h3>
+            <p>
+              A spiritually focused app concept built around prayer tracking, consistency, habit support, daily guidance, and meaningful personal progress. Planned from both product and system architecture angles.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Product Thinking</span>
+              <span class="tag">App Planning</span>
+              <span class="tag">UX Strategy</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container skill-grid">
+        <div class="card skills-card reveal">
+          <div class="section-label">Approach</div>
+          <h2 class="section-title">How I work</h2>
+          <p>
+            I care about clarity, maintainability, and software that feels better for the people using it. Whether it is a mobile feature, backend flow, UI rewrite, API issue, or deployment headache, I prefer solutions that are practical, readable, and solid enough that future-me does not open the file and get emotionally damaged.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="section-label">Toolbox</div>
+          <h2 class="section-title">Skills and technologies</h2>
+          <div class="chips">
+            <span class="chip">C#</span>
+            <span class="chip">.NET MAUI</span>
+            <span class="chip">ASP.NET MVC</span>
+            <span class="chip">Web API</span>
+            <span class="chip">React Native</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">Kendo UI</span>
+            <span class="chip">Chart.js</span>
+            <span class="chip">Git</span>
+            <span class="chip">IIS</span>
+            <span class="chip">Debugging</span>
+            <span class="chip">UI Refinement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Journey</div>
+          <h2 class="section-title">A few focus areas</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <span class="dot"></span>
             <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">Selected Work</p>
-              <h2 className="mt-2 text-3xl font-black md:text-4xl">Projects and product work</h2>
+              <h3>Mobile and cross-platform delivery</h3>
+              <p>Worked across mobile app flows, native platform quirks, push notifications, polished screens, and full feature delivery for real-world apps.</p>
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            {projects.map((project) => (
-              <article
-                key={project.title}
-                className="group rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/8 to-white/[0.03] p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-cyan-300/30"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
-                    {project.type}
-                  </span>
-                </div>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{project.description}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-cyan-400/15 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-100"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="skills" className="mt-20 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
-            <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">About</p>
-            <h2 className="mt-3 text-3xl font-black">What I bring</h2>
-            <p className="mt-5 text-sm leading-8 text-slate-300">
-              My work sits at the intersection of engineering, debugging, and product sense. I am comfortable dealing with legacy systems, building new features, integrating services, improving interfaces, and figuring out why something broke five minutes before everyone decided it was urgent.
-            </p>
-            <p className="mt-4 text-sm leading-8 text-slate-300">
-              I care about clarity, maintainability, and making software feel better for the people using it. Whether the job is a mobile screen, a backend flow, a production fix, or a full feature rollout, I like solutions that are both practical and clean.
-            </p>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
-            <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">Toolbox</p>
-            <h2 className="mt-3 text-3xl font-black">Skills and technologies</h2>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-2 text-sm font-medium text-slate-200"
-                >
-                  {skill}
-                </span>
-              ))}
+          <div class="timeline-item reveal">
+            <span class="dot"></span>
+            <div>
+              <h3>Enterprise and admin-heavy systems</h3>
+              <p>Handled large data-driven systems with complex views, reporting, printing requirements, administrative workflows, and backend-connected interfaces.</p>
             </div>
           </div>
-        </section>
 
-        <section className="mt-20">
-          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-r from-cyan-500/10 via-slate-900 to-fuchsia-500/10 p-8 text-center shadow-2xl shadow-cyan-950/20">
-            <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">Let’s build</p>
-            <h2 className="mt-3 text-3xl font-black md:text-4xl">
-              Need a mobile or web product that feels modern and works properly?
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-8 text-slate-300 md:text-base">
-              This demo portfolio is intentionally styled to feel premium and modern. You can now use it as a base, test it locally, or tweak the text and visuals for a real client portfolio.
-            </p>
-            <div className="mt-6 flex justify-center gap-3">
-              <span className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950">
-                Portfolio Preview Ready
-              </span>
+          <div class="timeline-item reveal">
+            <span class="dot"></span>
+            <div>
+              <h3>Product sense with engineering depth</h3>
+              <p>Not just making things run, but improving how they feel, how they are structured, and how clearly they serve the people using them.</p>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="glass cta reveal">
+          <div class="section-label">Contact</div>
+          <h2>Let’s build something clean, useful, and actually polished</h2>
+          <p>
+            This single-file portfolio is made specifically to run on GitHub Pages with zero setup drama. You can replace the text, add your links, add a photo, or ship it exactly as a test version. Everything is in one file, including the styling and the small animation script.
+          </p>
+          <div class="hero-actions" style="justify-content:center; margin-top: 28px; position: relative; z-index: 1;">
+            <a class="btn btn-primary" href="mailto:ahmad@example.com">Email me</a>
+            <a class="btn btn-secondary" href="#top">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Single-file portfolio demo for Ahmad Jarouche.
     </div>
-  );
-}
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
