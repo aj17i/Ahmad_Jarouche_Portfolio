@@ -4,64 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ahmad Jarouche | Portfolio</title>
-  <meta name="description" content="Portfolio of Ahmad Jarouche, software engineer focused on .NET MAUI, ASP.NET, React Native, backend integration, and polished UI." />
+  <meta name="description" content="Portfolio of Ahmad Jarouche, software engineer focused on mobile, web, backend integration, and polished UI." />
   <style>
     :root {
-      --bg: #06111f;
-      --bg-soft: rgba(255,255,255,0.06);
-      --card: rgba(255,255,255,0.08);
-      --line: rgba(255,255,255,0.12);
-      --text: #eef6ff;
-      --muted: #a9bfd7;
-      --cyan: #70e1ff;
-      --blue: #5aa4ff;
-      --purple: #b388ff;
-      --green: #68f0b0;
-      --shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
+      --bg: #f5fbf4;
+      --bg-2: #edf8eb;
+      --surface: rgba(255, 255, 255, 0.8);
+      --surface-strong: rgba(255, 255, 255, 0.94);
+      --line: rgba(33, 84, 46, 0.10);
+      --line-strong: rgba(33, 84, 46, 0.16);
+      --text: #17311d;
+      --muted: #567060;
+      --green: #2f9e62;
+      --green-2: #7ecf91;
+      --green-3: #cfeeda;
+      --mint: #dff7e6;
+      --shadow: 0 20px 60px rgba(54, 102, 62, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
       --max: 1200px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(112,225,255,0.18), transparent 25%),
-        radial-gradient(circle at 85% 20%, rgba(179,136,255,0.16), transparent 22%),
-        radial-gradient(circle at 50% 80%, rgba(104,240,176,0.10), transparent 18%),
-        linear-gradient(135deg, #040b14 0%, #08111f 45%, #0b1630 100%);
       color: var(--text);
-      min-height: 100vh;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(126, 207, 145, 0.22), transparent 22%),
+        radial-gradient(circle at 100% 10%, rgba(47, 158, 98, 0.14), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(190, 237, 201, 0.45), transparent 25%),
+        linear-gradient(180deg, #f8fdf7 0%, #f2faef 36%, #eef8eb 100%);
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 28px));
       margin: 0 auto;
+    }
+
+    .bg-orb {
+      position: fixed;
+      inset: auto;
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.8;
+      animation: drift 12s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 280px;
+      height: 280px;
+      background: rgba(126, 207, 145, 0.22);
+      top: 80px;
+      left: -90px;
+    }
+
+    .orb-2 {
+      width: 260px;
+      height: 260px;
+      background: rgba(47, 158, 98, 0.12);
+      top: 240px;
+      right: -90px;
+      animation-delay: -3s;
+    }
+
+    .orb-3 {
+      width: 220px;
+      height: 220px;
+      background: rgba(223, 247, 230, 0.95);
+      bottom: 120px;
+      left: 15%;
+      animation-delay: -6s;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-16px) translateX(10px) scale(1.04); }
     }
 
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(6, 17, 31, 0.6);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 251, 244, 0.72);
+      border-bottom: 1px solid rgba(33, 84, 46, 0.08);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 16px 0;
+      gap: 16px;
+      padding: 14px 0;
     }
 
     .brand {
@@ -72,87 +129,74 @@
       letter-spacing: 0.02em;
     }
 
-    .brand-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(112,225,255,0.25), rgba(90,164,255,0.22), rgba(179,136,255,0.25));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(135deg, #e8f9ec, #ccefd6);
+      border: 1px solid var(--line-strong);
       box-shadow: var(--shadow);
+      color: var(--green);
+      font-weight: 900;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav-links a {
-      color: var(--muted);
       padding: 10px 14px;
       border-radius: 999px;
+      color: var(--muted);
       transition: 0.25s ease;
-      font-size: 0.95rem;
+      font-weight: 600;
     }
 
     .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.8);
       color: var(--text);
-      background: rgba(255,255,255,0.06);
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-xl);
     }
 
     .hero {
-      padding: 72px 0 36px;
+      padding: 52px 0 24px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 22px;
       align-items: stretch;
     }
 
-    .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.045));
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-    }
-
     .hero-main {
-      padding: 36px;
+      padding: 34px;
       position: relative;
       overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-main::before,
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(30px);
-      z-index: -1;
     }
 
     .hero-main::before {
+      content: "";
+      position: absolute;
+      top: -90px;
+      right: -60px;
       width: 220px;
       height: 220px;
-      background: rgba(112, 225, 255, 0.16);
-      top: -80px;
-      right: -60px;
-    }
-
-    .hero-main::after {
-      width: 180px;
-      height: 180px;
-      background: rgba(179, 136, 255, 0.16);
-      bottom: -50px;
-      left: -50px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(126, 207, 145, 0.28), transparent 70%);
+      pointer-events: none;
     }
 
     .eyebrow {
@@ -161,139 +205,188 @@
       gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #d9e9f8;
-      font-size: 0.9rem;
-      margin-bottom: 22px;
+      background: #f4fcf5;
+      border: 1px solid var(--line);
+      color: var(--green);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(47, 158, 98, 0.12);
+      animation: pulse 2.4s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2.4rem, 5vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+      margin: 18px 0 0;
+      font-size: clamp(2.6rem, 5vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      max-width: 760px;
     }
 
     .gradient-text {
       display: block;
       margin-top: 10px;
-      background: linear-gradient(90deg, var(--cyan), #9bd7ff, var(--purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--green);
     }
 
     .lead {
-      margin: 24px 0 0;
-      max-width: 760px;
+      margin: 22px 0 0;
       color: var(--muted);
-      font-size: 1.05rem;
       line-height: 1.9;
+      font-size: 1.06rem;
+      max-width: 720px;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
     .btn {
-      border: 1px solid var(--line);
       border-radius: 18px;
       padding: 14px 18px;
-      font-weight: 700;
+      font-weight: 800;
       transition: 0.25s ease;
+      border: 1px solid var(--line-strong);
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #e8f8ff, #b7e6ff);
-      color: #041220;
-      border-color: transparent;
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-2px);
+      background: linear-gradient(135deg, #2f9e62, #69c984);
+      color: white;
+      box-shadow: 0 14px 30px rgba(47, 158, 98, 0.22);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.8);
       color: var(--text);
     }
 
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-stat {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.92rem;
+    }
+
     .hero-side {
-      padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
 
-    .profile-card {
-      flex: 1;
-      padding: 22px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, rgba(7, 17, 34, 0.96), rgba(13, 26, 49, 0.86));
-      border: 1px solid rgba(255,255,255,0.08);
+    .image-card {
+      padding: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-stack {
+      position: relative;
       min-height: 100%;
-    }
-
-    .mini-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(112,225,255,0.12);
-      color: var(--cyan);
-      border: 1px solid rgba(112,225,255,0.16);
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .profile-name {
-      margin: 16px 0 8px;
-      font-size: 1.65rem;
-      font-weight: 800;
-    }
-
-    .profile-role {
-      color: var(--muted);
-      line-height: 1.8;
-      margin: 0 0 24px;
-    }
-
-    .stats {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 14px;
     }
 
-    .stat {
-      padding: 16px;
+    .image-large,
+    .image-small {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      position: relative;
+      background: #dbeedc;
+    }
+
+    .image-large {
+      height: 320px;
+    }
+
+    .image-small-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .image-small {
+      height: 150px;
+    }
+
+    .image-large img,
+    .image-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 0.6s ease;
+    }
+
+    .image-large:hover img,
+    .image-small:hover img {
+      transform: scale(1.1);
+    }
+
+    .floating-badge {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      padding: 12px 14px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.84);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-weight: 800;
+      color: var(--green);
+      animation: floaty 4s ease-in-out infinite;
     }
 
-    .stat strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     section {
-      padding: 32px 0;
+      padding: 28px 0;
     }
 
     .section-head {
@@ -301,9 +394,9 @@
     }
 
     .section-label {
-      color: var(--cyan);
+      color: var(--green);
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       font-size: 0.82rem;
       font-weight: 800;
       margin-bottom: 10px;
@@ -311,25 +404,25 @@
 
     .section-title {
       margin: 0;
-      font-size: clamp(1.8rem, 3vw, 3rem);
-      letter-spacing: -0.03em;
+      font-size: clamp(1.9rem, 3vw, 3.2rem);
+      letter-spacing: -0.045em;
     }
 
     .section-copy {
+      max-width: 820px;
       color: var(--muted);
-      line-height: 1.85;
-      max-width: 800px;
+      line-height: 1.9;
       margin-top: 12px;
     }
 
-    .strength-grid,
+    .card-grid-4,
     .project-grid,
-    .skill-grid {
+    .split-grid {
       display: grid;
       gap: 18px;
     }
 
-    .strength-grid {
+    .card-grid-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
@@ -337,85 +430,102 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .skill-grid {
+    .split-grid {
       grid-template-columns: 0.9fr 1.1fr;
     }
 
     .card {
       padding: 24px;
       border-radius: var(--radius-lg);
-      background: var(--card);
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.74));
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -30% auto auto -10%;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(126, 207, 145, 0.18), transparent 70%);
+      pointer-events: none;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(112,225,255,0.28);
-      background: rgba(255,255,255,0.10);
+      transform: translateY(-5px);
+      border-color: rgba(47, 158, 98, 0.22);
+      box-shadow: 0 24px 60px rgba(54, 102, 62, 0.14);
     }
 
     .card h3 {
       margin: 0 0 10px;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
     }
 
     .card p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.82;
     }
 
     .project-type {
       display: inline-flex;
-      margin-bottom: 16px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #dbe9fb;
+      background: #f2fbf3;
+      border: 1px solid var(--line);
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 16px;
       font-size: 0.84rem;
-      font-weight: 700;
     }
 
-    .tag-row {
+    .tag-row,
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 18px;
     }
 
-    .tag {
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(112,225,255,0.10);
-      border: 1px solid rgba(112,225,255,0.14);
-      color: #d9f7ff;
-      font-size: 0.84rem;
-      font-weight: 700;
-    }
-
-    .skills-card p {
-      color: var(--muted);
-      line-height: 1.85;
-      margin: 0;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
+    .tag,
     .chip {
-      padding: 11px 15px;
-      border-radius: 16px;
-      background: rgba(6, 17, 31, 0.7);
-      border: 1px solid rgba(255,255,255,0.08);
-      font-weight: 700;
-      color: #e6f1ff;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(223, 247, 230, 0.72);
+      border: 1px solid rgba(47, 158, 98, 0.12);
+      color: #1c5b34;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .marquee-wrap {
+      overflow: hidden;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      padding: 12px 0;
+    }
+
+    .marquee {
+      display: flex;
+      width: max-content;
+      gap: 12px;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .timeline {
@@ -425,13 +535,13 @@
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 20px 1fr;
+      grid-template-columns: 22px 1fr;
       gap: 16px;
-      align-items: start;
       padding: 20px;
-      border-radius: var(--radius-lg);
-      background: rgba(255,255,255,0.06);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
+      box-shadow: var(--shadow);
     }
 
     .dot {
@@ -439,8 +549,8 @@
       height: 14px;
       border-radius: 50%;
       margin-top: 8px;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      box-shadow: 0 0 0 6px rgba(112,225,255,0.09);
+      background: linear-gradient(135deg, #2f9e62, #8edca2);
+      box-shadow: 0 0 0 6px rgba(47, 158, 98, 0.12);
     }
 
     .timeline-item h3 {
@@ -455,45 +565,46 @@
     }
 
     .cta {
-      padding: 34px;
       text-align: center;
+      padding: 34px;
       position: relative;
       overflow: hidden;
     }
 
-    .cta::before {
-      content: "";
-      position: absolute;
-      inset: auto auto -80px -80px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(112,225,255,0.12);
-      filter: blur(24px);
-    }
-
+    .cta::before,
     .cta::after {
       content: "";
       position: absolute;
-      inset: -70px -70px auto auto;
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      background: rgba(179,136,255,0.11);
-      filter: blur(24px);
+      filter: blur(28px);
+      pointer-events: none;
+    }
+
+    .cta::before {
+      left: -70px;
+      bottom: -80px;
+      background: rgba(126, 207, 145, 0.24);
+    }
+
+    .cta::after {
+      top: -90px;
+      right: -70px;
+      background: rgba(47, 158, 98, 0.12);
     }
 
     .cta h2 {
       margin: 0;
       font-size: clamp(2rem, 4vw, 3.4rem);
-      letter-spacing: -0.03em;
+      letter-spacing: -0.05em;
       position: relative;
       z-index: 1;
     }
 
     .cta p {
-      max-width: 800px;
       margin: 18px auto 0;
+      max-width: 760px;
       color: var(--muted);
       line-height: 1.9;
       position: relative;
@@ -501,16 +612,16 @@
     }
 
     .footer {
-      padding: 24px 0 50px;
-      color: var(--muted);
       text-align: center;
-      font-size: 0.95rem;
+      padding: 18px 0 44px;
+      color: var(--muted);
+      font-size: 0.94rem;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .reveal.visible {
@@ -518,11 +629,16 @@
       transform: translateY(0);
     }
 
+    .parallax {
+      will-change: transform;
+      transition: transform 0.08s linear;
+    }
+
     @media (max-width: 1080px) {
       .hero-grid,
-      .skill-grid,
       .project-grid,
-      .strength-grid {
+      .split-grid,
+      .card-grid-4 {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -533,7 +649,7 @@
 
     @media (max-width: 720px) {
       .container {
-        width: min(var(--max), calc(100% - 20px));
+        width: min(var(--max), calc(100% - 18px));
       }
 
       .nav-inner {
@@ -547,40 +663,48 @@
 
       .hero,
       section {
-        padding-top: 24px;
+        padding-top: 22px;
       }
 
       .hero-main,
-      .hero-side,
       .card,
       .cta,
-      .profile-card {
+      .image-card {
         padding: 20px;
       }
 
-      .strength-grid,
       .project-grid,
-      .skill-grid,
-      .stats {
+      .split-grid,
+      .card-grid-4,
+      .hero-stats,
+      .image-small-row {
         grid-template-columns: 1fr;
+      }
+
+      .image-large {
+        height: 260px;
+      }
+
+      .image-small {
+        height: 180px;
       }
 
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
       }
-
-      .btn {
-        justify-content: center;
-      }
     }
   </style>
 </head>
 <body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
   <nav class="navbar">
     <div class="container nav-inner">
       <a class="brand" href="#top">
-        <span class="brand-badge">AJ</span>
+        <span class="brand-mark">AJ</span>
         <span>Ahmad Jarouche</span>
       </a>
       <div class="nav-links">
@@ -596,44 +720,49 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="glass hero-main reveal">
-          <div class="eyebrow">Software Engineer • Mobile • Web • UI Refinement</div>
+        <div class="glass hero-main reveal parallax" data-speed="10">
+          <div class="eyebrow">Software Engineer • Green vibes • Smooth interactions</div>
           <h1>
             Ahmad Jarouche
-            <span class="gradient-text">Building apps that look sharp and actually work</span>
+            <span class="gradient-text">Building software that feels clean, sharp, and actually usable</span>
           </h1>
           <p class="lead">
-            I work across mobile and web development with hands-on experience in .NET MAUI, ASP.NET MVC, backend integration, React Native, and UI refinement. I like turning complicated real-world systems into products that feel clean, useful, and reliable instead of random and held together by hope.
+            I work across mobile and web development with hands-on experience in .NET MAUI, ASP.NET MVC, backend integration, React Native, and interface refinement. I like taking real systems with real constraints and turning them into products that feel modern instead of looking like they lost a fight with 2016.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">See projects</a>
-            <a class="btn btn-secondary" href="#skills">View skills</a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong data-count="4">0</strong>
+              <span>Core focus areas from mobile to backend delivery</span>
+            </div>
+            <div class="hero-stat">
+              <strong data-count="16">0</strong>
+              <span>Technologies and tools used across real builds</span>
+            </div>
+            <div class="hero-stat">
+              <strong data-count="100">0</strong>
+              <span>Percent effort when it is suddenly urgent at the worst time</span>
+            </div>
           </div>
         </div>
 
-        <div class="glass hero-side reveal">
-          <div class="profile-card">
-            <span class="mini-pill">Available for portfolio demo</span>
-            <div class="profile-name">Full Stack + Mobile Focus</div>
-            <p class="profile-role">
-              .NET MAUI, ASP.NET, React Native, APIs, debugging, polished interfaces, and real production problem solving.
-            </p>
-            <div class="stats">
-              <div class="stat">
-                <strong>Core stack</strong>
-                <span>.NET, MAUI, React Native, SQL</span>
+        <div class="hero-side">
+          <div class="glass image-card reveal parallax" data-speed="16">
+            <div class="image-stack">
+              <div class="image-large">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Desk setup and modern workspace" />
+                <div class="floating-badge">UI + Logic + Taste</div>
               </div>
-              <div class="stat">
-                <strong>Strength</strong>
-                <span>Shipping practical features</span>
-              </div>
-              <div class="stat">
-                <strong>Style</strong>
-                <span>Modern UI with actual function</span>
-              </div>
-              <div class="stat">
-                <strong>Work mode</strong>
-                <span>Legacy systems to new builds</span>
+              <div class="image-small-row">
+                <div class="image-small">
+                  <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80" alt="Mobile app interface on device" />
+                </div>
+                <div class="image-small">
+                  <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Code editor on screen" />
+                </div>
               </div>
             </div>
           </div>
@@ -645,28 +774,28 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">About</div>
-          <h2 class="section-title">What I bring to a project</h2>
+          <h2 class="section-title">Engineering with product sense and cleaner aesthetics</h2>
           <p class="section-copy">
-            My work sits between engineering, product thinking, and cleanup mode when systems start acting cursed. I am comfortable building features, integrating APIs, improving frontends, solving backend issues, and dealing with real constraints like legacy code, production bugs, mobile platform weirdness, and tight requirements.
+            My work sits between engineering depth, UI polish, and practical problem solving. I build features, integrate APIs, fix broken flows, clean up rough interfaces, and deal with the kind of edge cases that show up right when everyone says it should have been simple.
           </p>
         </div>
 
-        <div class="strength-grid">
+        <div class="card-grid-4">
           <div class="card reveal">
             <h3>Mobile Development</h3>
-            <p>Cross-platform apps with strong attention to usability, polish, and practical production constraints across Android and iOS.</p>
+            <p>Cross-platform apps with real attention to smooth usage, practical performance, and platform-specific behavior across Android and iOS.</p>
           </div>
           <div class="card reveal">
             <h3>Backend Integration</h3>
-            <p>Connecting interfaces to APIs, shaping data flow, debugging broken requests, and keeping business logic from collapsing on itself.</p>
+            <p>Connecting apps to APIs, shaping data flow, debugging edge cases, and making sure the whole thing behaves outside the happy path too.</p>
           </div>
           <div class="card reveal">
             <h3>UI Refinement</h3>
-            <p>Turning rough screens into modern, clean experiences that feel intentional instead of looking like they survived five redesigns.</p>
+            <p>Taking rough screens and turning them into modern, pleasant interfaces that feel intentional instead of stitched together under pressure.</p>
           </div>
           <div class="card reveal">
             <h3>Problem Solving</h3>
-            <p>Comfortable with messy bugs, edge cases, last-minute issues, and the timeless classic of “but it works on the other machine.”</p>
+            <p>Comfortable with legacy code, vague requirements, weird deployment issues, and the eternal genre of bug known as “it only breaks in production.”</p>
           </div>
         </div>
       </div>
@@ -678,7 +807,7 @@
           <div class="section-label">Selected Work</div>
           <h2 class="section-title">Projects and product work</h2>
           <p class="section-copy">
-            A few examples based on the kind of systems and products I have worked on, from healthcare and school platforms to mobile UI-heavy features and product concepts.
+            A few representative areas based on the kind of systems I have built, maintained, and refined across mobile apps, enterprise platforms, and product planning.
           </p>
         </div>
 
@@ -687,7 +816,7 @@
             <div class="project-type">Mobile App + Backend</div>
             <h3>First Medicine</h3>
             <p>
-              A healthcare-oriented platform built with a .NET MAUI mobile app and .NET backend. Work included API integration, notifications, localization, payment-related flows, platform-specific troubleshooting, and cross-device polish on Android and iOS.
+              A healthcare platform using a .NET MAUI mobile app and .NET backend. Work included API integration, notifications, localization, payment-related flows, and platform troubleshooting across Android and iOS.
             </p>
             <div class="tag-row">
               <span class="tag">.NET MAUI</span>
@@ -702,7 +831,7 @@
             <div class="project-type">Enterprise Web System</div>
             <h3>School Systems Platform</h3>
             <p>
-              Large school management and reporting systems built with ASP.NET MVC, Kendo UI, advanced reporting layouts, data-heavy screens, printing flows, and strict academic and administrative document requirements.
+              Large school management and reporting systems built with ASP.NET MVC, Kendo UI, advanced layouts, data-heavy screens, printing flows, and strict administrative requirements.
             </p>
             <div class="tag-row">
               <span class="tag">ASP.NET MVC</span>
@@ -717,7 +846,7 @@
             <div class="project-type">Mobile UI/UX</div>
             <h3>React Native Parent and Student Features</h3>
             <p>
-              Designed and refined mobile screens for agendas, events, notes, fees, and dashboards with modern layouts, better UX, cleaner states, and practical API-driven rendering for real application flows.
+              Designed and refined screens for agendas, notes, events, fees, and dashboards with cleaner visual hierarchy, stronger states, and better API-driven rendering.
             </p>
             <div class="tag-row">
               <span class="tag">React Native</span>
@@ -731,7 +860,7 @@
             <div class="project-type">Product Concept</div>
             <h3>Tawbah</h3>
             <p>
-              A spiritually focused app concept built around prayer tracking, consistency, habit support, daily guidance, and meaningful personal progress. Planned from both product and system architecture angles.
+              A spiritually focused app concept structured around prayer tracking, personal consistency, daily guidance, and meaningful progress with a thoughtful product direction behind it.
             </p>
             <div class="tag-row">
               <span class="tag">Product Thinking</span>
@@ -744,15 +873,14 @@
     </section>
 
     <section id="skills">
-      <div class="container skill-grid">
-        <div class="card skills-card reveal">
+      <div class="container split-grid">
+        <div class="card reveal">
           <div class="section-label">Approach</div>
-          <h2 class="section-title">How I work</h2>
-          <p>
-            I care about clarity, maintainability, and software that feels better for the people using it. Whether it is a mobile feature, backend flow, UI rewrite, API issue, or deployment headache, I prefer solutions that are practical, readable, and solid enough that future-me does not open the file and get emotionally damaged.
+          <h2 class="section-title">How I build</h2>
+          <p class="section-copy" style="margin-top:0; max-width:none;">
+            I care about software that is practical, maintainable, and pleasant to use. Whether it is a mobile feature, backend flow, UI rewrite, API issue, or deployment problem, I lean toward solutions that are clean, understandable, and solid enough that opening the code later does not feel like emotional damage.
           </p>
         </div>
-
         <div class="card reveal">
           <div class="section-label">Toolbox</div>
           <h2 class="section-title">Skills and technologies</h2>
@@ -771,8 +899,37 @@
             <span class="chip">Chart.js</span>
             <span class="chip">Git</span>
             <span class="chip">IIS</span>
-            <span class="chip">Debugging</span>
             <span class="chip">UI Refinement</span>
+            <span class="chip">Debugging</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Motion</div>
+          <h2 class="section-title">A little movement without being annoying</h2>
+        </div>
+        <div class="marquee-wrap reveal">
+          <div class="marquee" id="marqueeTrack">
+            <span class="chip">Modern Layouts</span>
+            <span class="chip">Micro Interactions</span>
+            <span class="chip">Animated Counters</span>
+            <span class="chip">Parallax Sections</span>
+            <span class="chip">Image Hover Zoom</span>
+            <span class="chip">Scroll Reveal</span>
+            <span class="chip">Single File HTML</span>
+            <span class="chip">GitHub Pages Ready</span>
+            <span class="chip">Modern Layouts</span>
+            <span class="chip">Micro Interactions</span>
+            <span class="chip">Animated Counters</span>
+            <span class="chip">Parallax Sections</span>
+            <span class="chip">Image Hover Zoom</span>
+            <span class="chip">Scroll Reveal</span>
+            <span class="chip">Single File HTML</span>
+            <span class="chip">GitHub Pages Ready</span>
           </div>
         </div>
       </div>
@@ -782,31 +939,28 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Journey</div>
-          <h2 class="section-title">A few focus areas</h2>
+          <h2 class="section-title">A few focus areas over time</h2>
         </div>
-
         <div class="timeline">
           <div class="timeline-item reveal">
             <span class="dot"></span>
             <div>
               <h3>Mobile and cross-platform delivery</h3>
-              <p>Worked across mobile app flows, native platform quirks, push notifications, polished screens, and full feature delivery for real-world apps.</p>
+              <p>Worked across real app flows, native platform quirks, push notifications, polished screens, and delivery details that matter in production.</p>
             </div>
           </div>
-
           <div class="timeline-item reveal">
             <span class="dot"></span>
             <div>
               <h3>Enterprise and admin-heavy systems</h3>
-              <p>Handled large data-driven systems with complex views, reporting, printing requirements, administrative workflows, and backend-connected interfaces.</p>
+              <p>Handled large data-driven systems with complex views, reporting needs, printing requirements, and backend-connected interfaces.</p>
             </div>
           </div>
-
           <div class="timeline-item reveal">
             <span class="dot"></span>
             <div>
               <h3>Product sense with engineering depth</h3>
-              <p>Not just making things run, but improving how they feel, how they are structured, and how clearly they serve the people using them.</p>
+              <p>Not just making features run, but improving how they feel, how they are structured, and how clearly they serve the people using them.</p>
             </div>
           </div>
         </div>
@@ -815,11 +969,11 @@
 
     <section id="contact">
       <div class="container">
-        <div class="glass cta reveal">
+        <div class="glass cta reveal parallax" data-speed="8">
           <div class="section-label">Contact</div>
-          <h2>Let’s build something clean, useful, and actually polished</h2>
+          <h2>Want the real version tuned even harder</h2>
           <p>
-            This single-file portfolio is made specifically to run on GitHub Pages with zero setup drama. You can replace the text, add your links, add a photo, or ship it exactly as a test version. Everything is in one file, including the styling and the small animation script.
+            This portfolio is now built as a single HTML file with a lighter green aesthetic, online images, scroll reveal, animated counters, parallax motion, hover interactions, and GitHub Pages friendliness. Replace text, swap links, and ship it without framework drama.
           </p>
           <div class="hero-actions" style="justify-content:center; margin-top: 28px; position: relative; z-index: 1;">
             <a class="btn btn-primary" href="mailto:ahmad@example.com">Email me</a>
@@ -831,9 +985,7 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
-      Single-file portfolio demo for Ahmad Jarouche.
-    </div>
+    <div class="container">Single-file portfolio demo for Ahmad Jarouche.</div>
   </footer>
 
   <script>
@@ -843,11 +995,44 @@
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.12
-    });
+    }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const countUp = (element) => {
+      const target = Number(element.dataset.count || 0);
+      let current = 0;
+      const step = Math.max(1, Math.ceil(target / 40));
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = current;
+      }, 28);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !entry.target.dataset.started) {
+          entry.target.dataset.started = '1';
+          countUp(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('[data-count]').forEach((el) => counterObserver.observe(el));
+
+    const parallaxItems = document.querySelectorAll('.parallax');
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      parallaxItems.forEach((item) => {
+        const speed = Number(item.dataset.speed || 10);
+        item.style.transform = `translate(${x * speed * 0.5}px, ${y * speed * 0.35}px)`;
+      });
+    });
   </script>
 </body>
 </html>
